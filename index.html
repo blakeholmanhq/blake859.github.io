@@ -1,60 +1,196 @@
 <!doctype html>
-<html lang="en" data-publication-ready="false">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex,nofollow">
-  <title>021 Labs</title>
-  <meta name="description" content="we build what's next.">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>021 Labs</title>
+<meta name="description" content="we build what's next.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<script>if(location.hash.indexOf("shot")>-1)document.documentElement.className="shot"</script>
+<style>
+@font-face{font-family:'Michroma';font-weight:400;font-display:swap;src:url(michroma.ttf) format('truetype')}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:#000;color:#EDEDED;font-family:'Michroma',sans-serif;
+  min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+  background-image:radial-gradient(circle at 50% 40%, rgba(234,165,78,.045), rgba(0,0,0,0) 56%);
+}
+#dustField{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+@keyframes tw{0%,100%{opacity:var(--o)}50%{opacity:calc(var(--o)*.22)}}
+.tw{animation-name:tw;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
+.stage{position:relative;display:flex;flex-direction:column;align-items:center;padding:24px}
+.mark{width:clamp(218px,36vmin,330px);height:auto;display:block;animation:markIn 1.6s ease both}
+@keyframes markIn{from{opacity:0}to{opacity:1}}
+#bandGroup{transform-box:fill-box;transform-origin:center}
+a.wm{display:block;width:clamp(250px,32vw,440px);margin-top:clamp(20px,4.2vh,40px);line-height:0;
+  opacity:0;animation:rise 1.1s cubic-bezier(.22,.8,.3,1) 2.35s both;transition:filter .5s ease}
+a.wm:hover{filter:drop-shadow(0 0 14px rgba(234,165,78,.28))}
+a.wm:focus-visible{outline:1px solid rgba(242,216,148,.6);outline-offset:8px}
+.wm-svg{width:100%;height:auto;display:block}
+@keyframes rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.line{margin-top:clamp(24px,5vh,46px);font-size:clamp(12px,1.45vw,16px);letter-spacing:.24em;margin-right:-.84em;
+  color:#E9E7E2;text-align:center;opacity:0;animation:rise 1.1s cubic-bezier(.22,.8,.3,1) 2.8s both}
+.rule{margin-top:clamp(26px,5.2vh,48px);width:min(190px,42vw);height:1px;border:0;
+  background:linear-gradient(90deg,rgba(242,216,148,0) 0%,rgba(242,216,148,0.27265524) 50%,rgba(166,43,26,0.27265524) 84.322078%,rgba(166,43,26,0) 100%);
+  opacity:0;animation:rise 1.2s ease 3.25s both}
+.receipts{margin-top:clamp(16px,3vh,26px);font-size:clamp(9px,1vw,11px);letter-spacing:.32em;margin-right:-.32em;
+  color:rgba(216,213,206,.48);text-align:center;opacity:0;animation:rise 1.2s ease 3.5s both}
+html.shot *,html.shot *::before,html.shot *::after{animation-duration:.001s !important;animation-delay:0s !important}
+html.shot a.wm,html.shot .line,html.shot .rule,html.shot .receipts{opacity:1}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001s !important;animation-delay:0s !important}
+  .tw{animation:none}
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="masthead shell">
-    <a class="maker" href="#hero" aria-label="021 Labs home">
-      <img src="assets/mark-b-v4.svg" width="48" height="48" alt="">
-      <span class="studio-wordmark">021 LABS</span>
-    </a>
-  </header>
-  <main id="main">
-    <section id="hero" class="hero" aria-labelledby="hero-title">
-      <img id="hero-media" class="hero-image" src="assets/hero-emberline.png" width="1672" height="941" fetchpriority="high" alt="">
-      <div class="hero-copy shell">
-        <h1 id="hero-title">we build what’s next.</h1>
-        <a class="scroll-cue" href="#zero" aria-label="Explore Zero"><span aria-hidden="true">↓</span></a>
-      </div>
-    </section>
-    <section id="build" class="chapter shell" aria-labelledby="build-title" hidden>
-      <h2 id="build-title">The build</h2>
-      <!-- Reserved editorial media/copy. Populate only from cleared public artifact pins. -->
-      <template id="build-content"></template>
-    </section>
-    <section id="zero" class="chapter shell zero" aria-labelledby="zero-title">
-      <div class="zero-identity">
-        <img src="assets/mark-c-v4.svg" width="96" height="96" alt="">
-        <h2 id="zero-title" class="zero-wordmark">ZERO</h2>
-      </div>
-      <!-- Vocabulary specimen is inert, never an assertion about live actor/task state. -->
-      <template id="zero-state-vocabulary">
-        <ul class="state-vocabulary" aria-label="State vocabulary">
-          <li>Verified</li><li>Pending</li><li>Veto</li><li>Running</li>
-        </ul>
-      </template>
-    </section>
-    <section id="proof" class="chapter shell" aria-labelledby="proof-title" hidden>
-      <h2 id="proof-title">Proof</h2>
-      <p>done is a verdict, not a claim.</p>
-      <!-- No internal receipts or fabricated evidence. Public package required. -->
-      <template id="proof-receipts"></template>
-    </section>
-    <section id="studio" class="chapter shell studio" aria-labelledby="studio-title">
-      <h2 id="studio-title">Studio</h2>
-      <p>021 Labs is my studio. We build websites, products, and brands. Zero is our flagship, the agent OS we're building in-house.</p>
-    </section>
-    <footer id="footer" class="footer shell">
-      <img src="assets/mark-b-v4.svg" width="48" height="48" alt="021 Labs">
-      <span>@021labsto</span>
-    </footer>
-  </main>
+<svg id="dustField" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g id="dust"></g></svg>
+
+<main class="stage">
+  <svg class="mark" viewBox="0 0 400 400" role="img" aria-label="021 Labs constellation mark" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bandGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFEF9"/><stop offset="0.3" stop-color="#FDF3D3"/><stop offset="0.5" stop-color="#F2D894"/><stop offset="0.64" stop-color="#EAA54E"/><stop offset="0.72" stop-color="#E2A34E"/><stop offset="0.81" stop-color="#E0963A"/><stop offset="0.875" stop-color="#D9732C"/><stop offset="0.93" stop-color="#CB5C26"/><stop offset="0.965" stop-color="#B8461F"/><stop offset="1.0" stop-color="#A62B1A"/></linearGradient>
+      <filter id="bandSoft" x="-40%" y="-160%" width="180%" height="420%"><feGaussianBlur stdDeviation="9"/></filter>
+      <radialGradient id="dgMcool"><stop offset="0" stop-color="#E9EDF6" stop-opacity="1.0"/><stop offset="0.35" stop-color="#E9EDF6" stop-opacity="0.6"/><stop offset="0.65" stop-color="#E9EDF6" stop-opacity="0.26"/><stop offset="0.85" stop-color="#E9EDF6" stop-opacity="0.09"/><stop offset="1" stop-color="#E9EDF6" stop-opacity="0"/></radialGradient><radialGradient id="dgWcool"><stop offset="0" stop-color="#E9EDF6" stop-opacity="0.5"/><stop offset="0.5" stop-color="#E9EDF6" stop-opacity="0.26"/><stop offset="1" stop-color="#E9EDF6" stop-opacity="0"/></radialGradient><radialGradient id="dgMgold"><stop offset="0" stop-color="#F2D894" stop-opacity="1.0"/><stop offset="0.35" stop-color="#F2D894" stop-opacity="0.6"/><stop offset="0.65" stop-color="#F2D894" stop-opacity="0.26"/><stop offset="0.85" stop-color="#F2D894" stop-opacity="0.09"/><stop offset="1" stop-color="#F2D894" stop-opacity="0"/></radialGradient><radialGradient id="dgWgold"><stop offset="0" stop-color="#F2D894" stop-opacity="0.5"/><stop offset="0.5" stop-color="#F2D894" stop-opacity="0.26"/><stop offset="1" stop-color="#F2D894" stop-opacity="0"/></radialGradient><radialGradient id="dgMbright"><stop offset="0" stop-color="#F2F5FC" stop-opacity="1.0"/><stop offset="0.35" stop-color="#F2F5FC" stop-opacity="0.6"/><stop offset="0.65" stop-color="#F2F5FC" stop-opacity="0.26"/><stop offset="0.85" stop-color="#F2F5FC" stop-opacity="0.09"/><stop offset="1" stop-color="#F2F5FC" stop-opacity="0"/></radialGradient><radialGradient id="dgWbright"><stop offset="0" stop-color="#F2F5FC" stop-opacity="0.5"/><stop offset="0.5" stop-color="#F2F5FC" stop-opacity="0.26"/><stop offset="1" stop-color="#F2F5FC" stop-opacity="0"/></radialGradient><radialGradient id="dgMember"><stop offset="0" stop-color="#CB5C26" stop-opacity="1.0"/><stop offset="0.35" stop-color="#CB5C26" stop-opacity="0.6"/><stop offset="0.65" stop-color="#CB5C26" stop-opacity="0.26"/><stop offset="0.85" stop-color="#CB5C26" stop-opacity="0.09"/><stop offset="1" stop-color="#CB5C26" stop-opacity="0"/></radialGradient><radialGradient id="dgWember"><stop offset="0" stop-color="#CB5C26" stop-opacity="0.5"/><stop offset="0.5" stop-color="#CB5C26" stop-opacity="0.26"/><stop offset="1" stop-color="#CB5C26" stop-opacity="0"/></radialGradient><radialGradient id="dgMwarm"><stop offset="0" stop-color="#EAA54E" stop-opacity="1.0"/><stop offset="0.35" stop-color="#EAA54E" stop-opacity="0.6"/><stop offset="0.65" stop-color="#EAA54E" stop-opacity="0.26"/><stop offset="0.85" stop-color="#EAA54E" stop-opacity="0.09"/><stop offset="1" stop-color="#EAA54E" stop-opacity="0"/></radialGradient><radialGradient id="dgWwarm"><stop offset="0" stop-color="#EAA54E" stop-opacity="0.5"/><stop offset="0.5" stop-color="#EAA54E" stop-opacity="0.26"/><stop offset="1" stop-color="#EAA54E" stop-opacity="0"/></radialGradient>
+    </defs>
+    <g id="halos">
+          <ellipse class="halo" cx="200.0" cy="52.0" rx="6.8" ry="6.3" fill="url(#dgMgold)" opacity="0.17"/>
+          <ellipse class="halo" cx="243.6" cy="58.6" rx="11.5" ry="10.7" fill="url(#dgMcool)" opacity="0.09"/>
+          <ellipse class="halo" cx="283.4" cy="77.7" rx="13.6" ry="12.2" fill="url(#dgMcool)" opacity="0.20"/>
+          <ellipse class="halo" cx="315.7" cy="107.7" rx="10.1" ry="8.9" fill="url(#dgMember)" opacity="0.15"/>
+          <ellipse class="halo" cx="337.8" cy="145.9" rx="12.7" ry="12.3" fill="url(#dgMcool)" opacity="0.27"/>
+          <ellipse class="halo" cx="347.6" cy="188.9" rx="12.7" ry="10.9" fill="url(#dgMcool)" opacity="0.18"/>
+          <ellipse class="halo" cx="344.3" cy="232.9" rx="7.2" ry="6.3" fill="url(#dgMcool)" opacity="0.09"/>
+          <ellipse class="halo" cx="328.2" cy="274.0" rx="6.5" ry="6.3" fill="url(#dgMgold)" opacity="0.14"/>
+          <ellipse class="halo" cx="300.7" cy="308.5" rx="10.9" ry="9.6" fill="url(#dgMcool)" opacity="0.21"/>
+          <ellipse class="halo" cx="264.2" cy="333.3" rx="7.9" ry="7.4" fill="url(#dgMcool)" opacity="0.13"/>
+          <ellipse class="halo" cx="222.1" cy="346.3" rx="15.1" ry="13.5" fill="url(#dgMbright)" opacity="0.24"/>
+          <ellipse class="halo" cx="177.9" cy="346.3" rx="11.6" ry="11.1" fill="url(#dgMcool)" opacity="0.19"/>
+          <ellipse class="halo" cx="135.8" cy="333.3" rx="10.6" ry="9.4" fill="url(#dgMcool)" opacity="0.20"/>
+          <ellipse class="halo" cx="99.3" cy="308.5" rx="10.0" ry="8.9" fill="url(#dgMcool)" opacity="0.11"/>
+          <ellipse class="halo" cx="71.8" cy="274.0" rx="6.6" ry="6.5" fill="url(#dgMgold)" opacity="0.18"/>
+          <ellipse class="halo" cx="55.7" cy="232.9" rx="8.3" ry="7.4" fill="url(#dgMcool)" opacity="0.16"/>
+          <ellipse class="halo" cx="52.4" cy="188.9" rx="10.4" ry="9.4" fill="url(#dgMcool)" opacity="0.26"/>
+          <ellipse class="halo" cx="62.2" cy="145.9" rx="14.7" ry="14.1" fill="url(#dgMbright)" opacity="0.27"/>
+          <ellipse class="halo" cx="84.3" cy="107.7" rx="9.4" ry="8.8" fill="url(#dgMcool)" opacity="0.10"/>
+          <ellipse class="halo" cx="116.6" cy="77.7" rx="10.9" ry="10.4" fill="url(#dgMcool)" opacity="0.24"/>
+          <ellipse class="halo" cx="156.4" cy="58.6" rx="7.0" ry="6.6" fill="url(#dgMcool)" opacity="0.10"/>
+    </g>
+    <g id="cores">
+          <circle class="core" cx="200.0" cy="52.0" r="2.7" fill="#F2D894" opacity="0.62"/>
+          <circle class="core" cx="243.6" cy="58.6" r="4.4" fill="#E9EDF6" opacity="0.38"/>
+          <circle class="core" cx="283.4" cy="77.7" r="4.9" fill="#E9EDF6" opacity="0.78"/>
+          <circle class="core" cx="315.7" cy="107.7" r="3.6" fill="#CB5C26" opacity="0.45"/>
+          <circle class="core" cx="337.8" cy="145.9" r="5.3" fill="#E9EDF6" opacity="0.88"/>
+          <circle class="core" cx="347.6" cy="188.9" r="4.2" fill="#E9EDF6" opacity="0.66"/>
+          <circle class="core" cx="344.3" cy="232.9" r="2.7" fill="#E9EDF6" opacity="0.34"/>
+          <circle class="core" cx="328.2" cy="274.0" r="2.4" fill="#F2D894" opacity="0.58"/>
+          <circle class="core" cx="300.7" cy="308.5" r="4.3" fill="#E9EDF6" opacity="0.82"/>
+          <circle class="core" cx="264.2" cy="333.3" r="3.6" fill="#E9EDF6" opacity="0.42"/>
+          <circle class="core" cx="222.1" cy="346.3" r="5.6" fill="#F2F5FC" opacity="0.97"/>
+          <circle class="core" cx="177.9" cy="346.3" r="4.3" fill="#E9EDF6" opacity="0.55"/>
+          <circle class="core" cx="135.8" cy="333.3" r="5.2" fill="#E9EDF6" opacity="0.74"/>
+          <circle class="core" cx="99.3" cy="308.5" r="3.8" fill="#E9EDF6" opacity="0.36"/>
+          <circle class="core" cx="71.8" cy="274.0" r="2.4" fill="#F2D894" opacity="0.64"/>
+          <circle class="core" cx="55.7" cy="232.9" r="4.0" fill="#E9EDF6" opacity="0.5"/>
+          <circle class="core" cx="52.4" cy="188.9" r="4.9" fill="#E9EDF6" opacity="0.84"/>
+          <circle class="core" cx="62.2" cy="145.9" r="4.9" fill="#F2F5FC" opacity="0.93"/>
+          <circle class="core" cx="84.3" cy="107.7" r="3.5" fill="#E9EDF6" opacity="0.4"/>
+          <circle class="core" cx="116.6" cy="77.7" r="4.7" fill="#E9EDF6" opacity="0.7"/>
+          <circle class="core" cx="156.4" cy="58.6" r="2.5" fill="#E9EDF6" opacity="0.31"/>
+    </g>
+    <g id="bandGroup">
+      <path id="bandGlow" d="M102,200 C102,192 145,190 200,190 C255,190 298,192 298,200 C298,208 255,210 200,210 C145,210 102,208 102,200 Z" fill="url(#bandGrad)" opacity="0.5" filter="url(#bandSoft)"/>
+      <path id="bandBody" d="M102,200 C102,192 145,190 200,190 C255,190 298,192 298,200 C298,208 255,210 200,210 C145,210 102,208 102,200 Z" fill="url(#bandGrad)"/>
+    </g>
+  </svg>
+
+  <a class="wm" href="https://www.instagram.com/021labs.to"><svg class="wm-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="021 LABS" viewBox="-205 -205 16937 2010"><defs><linearGradient id="ember" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFEF9"/><stop offset="0.3" stop-color="#FDF3D3"/><stop offset="0.5" stop-color="#F2D894"/><stop offset="0.64" stop-color="#EAA54E"/><stop offset="0.72" stop-color="#E2A34E"/><stop offset="0.81" stop-color="#E0963A"/><stop offset="0.875" stop-color="#D9732C"/><stop offset="0.93" stop-color="#CB5C26"/><stop offset="0.965" stop-color="#B8461F"/><stop offset="1.0" stop-color="#A62B1A"/></linearGradient><filter id="wmSoft" x="-60%" y="-300%" width="220%" height="700%"><feGaussianBlur stdDeviation="24.576"/></filter></defs><g transform="translate(0 1773) scale(1 -1)"><clipPath id="abv"><rect x="124" y="822" width="1700" height="800"/></clipPath><clipPath id="bel"><rect x="124" y="-36" width="1700" height="750"/></clipPath><g clip-path="url(#abv)"><path transform="translate(0.0 0)" d="M1628 788Q1628 964 1616.0 1078.0Q1604 1192 1571.5 1258.0Q1539 1324 1477.5 1354.5Q1416 1385 1318.0 1393.5Q1220 1402 1077 1402H871Q728 1402 630.0 1393.5Q532 1385 470.5 1354.5Q409 1324 376.5 1258.0Q344 1192 332.0 1078.0Q320 964 320 788V748Q320 578 332.0 466.0Q344 354 376.5 287.0Q409 220 470.5 187.0Q532 154 630.0 144.0Q728 134 871 134H1077Q1220 134 1318.0 144.0Q1416 154 1477.5 187.0Q1539 220 1571.5 287.0Q1604 354 1616.0 466.0Q1628 578 1628 748ZM128 748V788Q128 992 148.0 1130.5Q168 1269 217.0 1356.0Q266 1443 350.5 1489.0Q435 1535 563.0 1551.5Q691 1568 871 1568H1077Q1257 1568 1385.0 1551.5Q1513 1535 1597.5 1489.0Q1682 1443 1731.0 1356.0Q1780 1269 1800.0 1130.5Q1820 992 1820 788V748Q1820 501 1787.5 347.0Q1755 193 1673.5 111.0Q1592 29 1447.0 -1.5Q1302 -32 1077 -32H871Q646 -32 501.0 -1.5Q356 29 274.5 111.0Q193 193 160.5 347.0Q128 501 128 748Z" fill="#EDEDED"/></g><g clip-path="url(#bel)"><path transform="translate(0.0 0)" d="M1628 788Q1628 964 1616.0 1078.0Q1604 1192 1571.5 1258.0Q1539 1324 1477.5 1354.5Q1416 1385 1318.0 1393.5Q1220 1402 1077 1402H871Q728 1402 630.0 1393.5Q532 1385 470.5 1354.5Q409 1324 376.5 1258.0Q344 1192 332.0 1078.0Q320 964 320 788V748Q320 578 332.0 466.0Q344 354 376.5 287.0Q409 220 470.5 187.0Q532 154 630.0 144.0Q728 134 871 134H1077Q1220 134 1318.0 144.0Q1416 154 1477.5 187.0Q1539 220 1571.5 287.0Q1604 354 1616.0 466.0Q1628 578 1628 748ZM128 748V788Q128 992 148.0 1130.5Q168 1269 217.0 1356.0Q266 1443 350.5 1489.0Q435 1535 563.0 1551.5Q691 1568 871 1568H1077Q1257 1568 1385.0 1551.5Q1513 1535 1597.5 1489.0Q1682 1443 1731.0 1356.0Q1780 1269 1800.0 1130.5Q1820 992 1820 788V748Q1820 501 1787.5 347.0Q1755 193 1673.5 111.0Q1592 29 1447.0 -1.5Q1302 -32 1077 -32H871Q646 -32 501.0 -1.5Q356 29 274.5 111.0Q193 193 160.5 347.0Q128 501 128 748Z" fill="#EDEDED"/></g><path d="M-481,768 C246,851 1702,851 2429,768 C1702,685 246,685 -481,768 Z" fill="url(#ember)" opacity="0.55" filter="url(#wmSoft)"/><path d="M-481,768 C246,851 1702,851 2429,768 C1702,685 246,685 -481,768 Z" fill="url(#ember)"/><path d="M-15,768 C392,796 1556,796 1963,768 C1556,740 392,740 -15,768 Z" fill="#FFFEF9" opacity="0.85" filter="url(#wmSoft)"/><path transform="translate(2234.7 0)" d="M166 371Q166 505 191.0 596.0Q216 687 287.0 742.0Q358 797 493.5 821.5Q629 846 849 847H1207Q1363 847 1450.5 857.5Q1538 868 1578.0 897.5Q1618 927 1627.5 983.5Q1637 1040 1637 1132Q1637 1228 1619.0 1283.0Q1601 1338 1548.0 1363.0Q1495 1388 1391.5 1395.0Q1288 1402 1117 1402H899Q720 1402 612.5 1395.0Q505 1388 450.0 1363.0Q395 1338 376.5 1283.0Q358 1228 358 1132H166Q166 1263 195.5 1348.0Q225 1433 302.5 1481.0Q380 1529 522.0 1548.5Q664 1568 889 1568H1127Q1344 1568 1482.0 1548.5Q1620 1529 1695.5 1481.0Q1771 1433 1800.0 1348.0Q1829 1263 1829 1132Q1829 964 1784.5 866.5Q1740 769 1628.5 727.5Q1517 686 1314 686H874Q695 686 591.0 674.0Q487 662 437.0 628.5Q387 595 372.5 533.0Q358 471 358 371V160H1768V0H166Z" fill="#EDEDED"/><path transform="translate(4469.4 0)" d="M388 0V160H1002V1374L429 1183L368 1331L988 1536H1194V160H1730V0Z" fill="#EDEDED"/><path transform="translate(7572.9 0)" d="M192 0V1536H384V160H1600V0Z" fill="#EDEDED"/><path transform="translate(9523.6 0)" d="M64 0 960 1536H1216L2112 0H1888L1696 352H480L288 0ZM576 512H1600L1088 1408Z" fill="#EDEDED"/><path transform="translate(11986.3 0)" d="M192 0V1536H1416Q1590 1536 1701.5 1503.5Q1813 1471 1866.5 1388.5Q1920 1306 1920 1155Q1920 1019 1857.0 930.0Q1794 841 1664 832Q1834 815 1909.0 710.5Q1984 606 1984 448Q1984 311 1952.5 223.0Q1921 135 1847.0 86.5Q1773 38 1646.5 19.0Q1520 0 1331 0ZM384 896H1279Q1434 896 1533.0 907.0Q1632 918 1680.0 972.0Q1728 1026 1728 1155Q1728 1256 1699.5 1303.0Q1671 1350 1603.0 1363.0Q1535 1376 1416 1376H384ZM384 160H1331Q1468 160 1557.5 167.0Q1647 174 1698.5 201.0Q1750 228 1771.0 286.5Q1792 345 1792 448Q1792 554 1752.5 613.0Q1713 672 1642.5 698.0Q1572 724 1479.0 730.0Q1386 736 1279 736H384Z" fill="#EDEDED"/><path transform="translate(14385.0 0)" d="M1827 444Q1827 533 1813.0 584.0Q1799 635 1750.0 659.5Q1701 684 1598.0 691.5Q1495 699 1316 702L760 710Q554 713 429.0 735.0Q304 757 240.0 804.5Q176 852 154.5 932.0Q133 1012 133 1132Q133 1263 162.5 1348.0Q192 1433 269.5 1481.0Q347 1529 489.0 1548.5Q631 1568 856 1568H1284Q1488 1568 1624.0 1555.0Q1760 1542 1840.0 1495.0Q1920 1448 1954.5 1349.0Q1989 1250 1989 1077H1797Q1797 1211 1771.5 1279.5Q1746 1348 1687.5 1373.0Q1629 1398 1530.0 1400.0Q1431 1402 1284 1402H866Q687 1402 579.5 1395.0Q472 1388 417.0 1363.0Q362 1338 343.5 1283.0Q325 1228 325 1132Q325 1051 338.0 1002.0Q351 953 396.5 927.5Q442 902 537.0 892.5Q632 883 796 881L1392 873Q1602 870 1727.5 848.5Q1853 827 1915.5 779.0Q1978 731 1998.5 649.5Q2019 568 2019 444Q2019 309 1993.5 217.5Q1968 126 1895.0 71.0Q1822 16 1684.0 -8.0Q1546 -32 1321 -32H853Q648 -32 509.0 -14.0Q370 4 287.5 58.5Q205 113 169.0 221.0Q133 329 133 509H325Q325 368 348.0 291.0Q371 214 428.5 180.5Q486 147 589.5 140.5Q693 134 853 134H1311Q1490 134 1594.0 145.5Q1698 157 1748.0 189.5Q1798 222 1812.5 283.0Q1827 344 1827 444Z" fill="#EDEDED"/></g></svg></a>
+
+  <p class="line">we build what&rsquo;s next.</p>
+  <hr class="rule">
+  <p class="receipts">every claim comes with receipts.</p>
+</main>
+
+<script>
+(function(){
+  var shot = location.hash.indexOf('shot')>-1;
+  var reduce = shot || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* living dust: faint static field, a few specks breathing */
+  function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  var rnd = mulberry32(210219), dust = document.getElementById('dust'), NS = 'http://www.w3.org/2000/svg';
+  for (var i=0;i<130;i++){
+    var c = document.createElementNS(NS,'circle');
+    c.setAttribute('cx',(rnd()*1440).toFixed(0)); c.setAttribute('cy',(rnd()*900).toFixed(0));
+    c.setAttribute('r',(0.7+rnd()*1.6).toFixed(1));
+    c.setAttribute('fill', rnd()<0.12 ? '#F2D894' : '#E9EDF6');
+    var o = 0.04+rnd()*0.18;
+    c.setAttribute('opacity', o.toFixed(2));
+    if (!reduce && i%11===0){
+      c.setAttribute('class','tw');
+      c.style.setProperty('--o', o.toFixed(2));
+      c.style.animationDuration = (6+rnd()*7).toFixed(1)+'s';
+      c.style.animationDelay = (-rnd()*9).toFixed(1)+'s';
+    }
+    dust.appendChild(c);
+  }
+
+  var PTS = [[200.0, 52.0, 3.6, 0.62], [243.6, 58.6, 4.4, 0.38], [283.4, 77.7, 5.2, 0.78], [315.7, 107.7, 4.0, 0.45], [337.8, 145.9, 5.6, 0.88], [347.6, 188.9, 5.0, 0.66], [344.3, 232.9, 3.8, 0.34], [328.2, 274.0, 3.4, 0.58], [300.7, 308.5, 4.6, 0.82], [264.2, 333.3, 3.9, 0.42], [222.1, 346.3, 5.8, 0.97], [177.9, 346.3, 4.8, 0.55], [135.8, 333.3, 5.4, 0.74], [99.3, 308.5, 4.1, 0.36], [71.8, 274.0, 3.5, 0.64], [55.7, 232.9, 4.3, 0.5], [52.4, 188.9, 5.1, 0.84], [62.2, 145.9, 5.7, 0.93], [84.3, 107.7, 4.2, 0.4], [116.6, 77.7, 4.9, 0.7], [156.4, 58.6, 3.7, 0.31]];
+  var halos = document.querySelectorAll('#halos .halo');
+  var cores = document.querySelectorAll('#cores .core');
+  var band = document.getElementById('bandGroup');
+  var glow = document.getElementById('bandGlow');
+
+  if (reduce) return; /* static formed mark, exactly as authored */
+
+  /* scatter start positions: the dust before it becomes the 0 */
+  var srnd = mulberry32(9182), P = [];
+  for (var j=0;j<PTS.length;j++){
+    var ang = srnd()*Math.PI*2, rad = 120+srnd()*190;
+    P.push({
+      x: PTS[j][0], y: PTS[j][1],
+      sx: 200+Math.cos(ang)*rad, sy: 200+Math.sin(ang)*rad*0.82,
+      delay: srnd()*420, dur: 1450+srnd()*450,
+      amp: 0.9+srnd()*1.5, per: 9000+srnd()*8000, ph: srnd()*Math.PI*2
+    });
+  }
+  band.style.opacity = '0';
+  function ease(t){return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2}
+  var T0 = null, FORM = 2650, IGNITE = 1750;
+  function frame(ts){
+    if (!T0) T0 = ts;
+    var t = ts-T0, i, p, k;
+    for (i=0;i<P.length;i++){
+      p = P[i];
+      k = (t-p.delay)/p.dur; k = k<0?0:(k>1?1:k);
+      var e = ease(k), x, y;
+      if (k>=1){
+        x = p.x + Math.sin(t/p.per+p.ph)*p.amp;
+        y = p.y + Math.cos(t/(p.per*1.17)+p.ph)*p.amp*0.8;
+      } else {
+        x = p.sx + (p.x-p.sx)*e;
+        y = p.sy + (p.y-p.sy)*e;
+      }
+      halos[i].setAttribute('cx',x.toFixed(1)); halos[i].setAttribute('cy',y.toFixed(1));
+      cores[i].setAttribute('cx',x.toFixed(1)); cores[i].setAttribute('cy',y.toFixed(1));
+      var fade = 0.25+0.75*e;
+      halos[i].setAttribute('opacity',(PTS[i][3]*0.30*fade).toFixed(2));
+      cores[i].setAttribute('opacity',(PTS[i][3]*fade).toFixed(2));
+    }
+    if (t>IGNITE){
+      var b = Math.min(1,(t-IGNITE)/750);
+      band.style.opacity = ease(b).toFixed(3);
+      band.style.transform = 'scale('+(0.94+0.06*ease(b)).toFixed(3)+')';
+      glow.setAttribute('opacity',(0.5+0.10*Math.sin(t/1150)).toFixed(3)); /* the band breathes */
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>

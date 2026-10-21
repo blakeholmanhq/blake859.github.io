@@ -1,3 +1,0 @@
-Syncopate font supplied and pinned in NOTE-arlo-cycle6-inputs-20261020-0613. Embedded font license records:
-
-http://www.apache.org/licenses/LICENSE-2.0
